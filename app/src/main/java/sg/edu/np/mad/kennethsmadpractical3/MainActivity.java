@@ -1,13 +1,15 @@
-package sg.edu.np.mad.kennethsmadpractical2;
+package sg.edu.np.mad.kennethsmadpractical3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     final String TITLE = "Main Activity";
@@ -16,27 +18,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.v(TITLE, "On Create!");
-        TextView header = findViewById(R.id.header);
-        header.setTextSize(36);
-        header.setTypeface(null, Typeface.BOLD);
         // Preset User
         User Kenneth = new User("Kenneth", "Male, 1.7m, studies at Ngee Ann Polytechnic", 001, false);
         Button follow = findViewById(R.id.btnfollow);
-        if (Kenneth.isFollowed()) {
-            follow.setText("Followed");
-        } else {
-            follow.setText("Follow");
+
+        TextView headerText = findViewById(R.id.header);
+        String newHeaderText = getIntent().getStringExtra("NEW_HEADER_TEXT");
+        if (newHeaderText != null) {
+            headerText.setText(newHeaderText);
         }
+
         follow.setOnClickListener(new View.OnClickListener(){
-            @Override
             public void onClick(View view) {
-                if (Kenneth.isFollowed()) {
+                if (Kenneth.isFollowed())
+                {
                     Kenneth.setFollowed(false);
                     follow.setText("Follow");
-                } else {
+                    Toast.makeText(getApplicationContext(), "Unfollowed", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
                     Kenneth.setFollowed(true);
                     follow.setText("Followed");
+                    Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
                 }
+
                 Log.v(TITLE, "Follow button is clicked. Follow status: " + Kenneth.isFollowed());
             }
         });
@@ -47,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.v(TITLE, "messages is pressed");
+                Intent myintent = new Intent(MainActivity.this, MessageGroup.class);
+                startActivity(myintent);
+
 
             }
         });
