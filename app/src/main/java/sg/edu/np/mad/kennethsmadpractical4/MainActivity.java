@@ -1,4 +1,4 @@
-package sg.edu.np.mad.kennethsmadpractical3;
+package sg.edu.np.mad.kennethsmadpractical4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         TextView headerText = findViewById(R.id.header);
         String newHeaderText = getIntent().getStringExtra("NEW_HEADER_TEXT");
+        TextView subheaderText = findViewById(R.id.subheader);
+        String newsubHeaderText = getIntent().getStringExtra("NEW_SUB_HEADER_TEXT");
         if (newHeaderText != null) {
             headerText.setText(newHeaderText);
+            subheaderText.setText(newsubHeaderText);
         }
 
         follow.setOnClickListener(new View.OnClickListener(){
@@ -92,4 +95,6 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+
+// prac 4
 
