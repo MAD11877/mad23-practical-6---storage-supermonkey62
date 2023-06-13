@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Kenneth\'s MAD Practical 4</string>
-    <string name="follow">Follow</string>
+    <string name="app_name">Kenneth\'s MAD Practical 5</string>
+    <string name="follow">bruh</string>
+    <string name="followe">bruhed</string>
     <string name="message">Message</string>
     <string name="header">Hello World!</string>
     <string name="subheader">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
@@ -11,4 +12,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    // Follow Button Strings
+    <string name="follows">Follow</string>
+    <string name="followed">Followed</string>
+
+    //Login Page
+    <string name="loginPageTitle">Login Page</string>
+    <string name="usernameText">Username</string>
+    <string name="passwordText">Password</string>
+    <string name="loginButtonText">LOGIN</string>
+    <string name="newUserText">New User? Click Here!</string>
+    <string name="CreateAccTitle">CREATE ACCOUNT</string>
+    <string name="confirmCreationText">Create</string>
+    <string name="cancelCreationText">Cancel</string>
+    <string name="mainLandingPageTitle">MAIN PAGE</string>
 </resources>

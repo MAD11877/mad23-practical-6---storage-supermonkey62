@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "710694397407",
+    "project_id": "mad-practical-5-e14ef",
+    "storage_bucket": "mad-practical-5-e14ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710694397407:android:526b162f8b5e2f69c9106a",
+        "android_client_info": {
+          "package_name": "sg.edu.np.mad.kennethsmadpractical5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710694397407-1toh49qab2a0qbn0junj1i2k5hnifog0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sg.edu.np.mad.kennethsmadpractical5",
+            "certificate_hash": "d2bc50246566964c02bef918fe57d8f9f496c2c0"
+          }
+        },
+        {
+          "client_id": "710694397407-1au517s3udqsr1apcp2na8c0t8kas7qo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAekMpuaxLpQPaXUvY3BOjEZcHvkAtkgts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710694397407-1au517s3udqsr1apcp2na8c0t8kas7qo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

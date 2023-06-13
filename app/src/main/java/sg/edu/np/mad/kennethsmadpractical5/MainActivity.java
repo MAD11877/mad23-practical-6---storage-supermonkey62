@@ -1,9 +1,8 @@
-package sg.edu.np.mad.kennethsmadpractical4;
+package sg.edu.np.mad.kennethsmadpractical5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,35 +17,46 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.v(TITLE, "On Create!");
-        // Preset User
-        User Kenneth = new User("Kenneth", "Male, 1.7m, studies at Ngee Ann Polytechnic", 001, false);
-        Button follow = findViewById(R.id.btnfollow);
 
+        Button follow = findViewById(R.id.btnfollow);
         TextView headerText = findViewById(R.id.header);
         String newHeaderText = getIntent().getStringExtra("NEW_HEADER_TEXT");
         TextView subheaderText = findViewById(R.id.subheader);
         String newsubHeaderText = getIntent().getStringExtra("NEW_SUB_HEADER_TEXT");
-        if (newHeaderText != null) {
-            headerText.setText(newHeaderText);
-            subheaderText.setText(newsubHeaderText);
+        int userId = getIntent().getIntExtra("USER_ID", -1);
+        DBHandler dbHandler = new DBHandler(this, "users.db", null, 1);
+        User user = dbHandler.findUser(userId);
+
+        headerText.setText(newHeaderText);
+        subheaderText.setText(newsubHeaderText);
+        if (user.isFollowed()){
+            follow.setText(R.string.followed);
         }
+        else{
+            follow.setText(R.string.follows);
+        }
+        Log.v(TITLE, "User ID: " + user.getId());
+        Log.v(TITLE, "User Follow Status: " + user.isFollowed());
 
-        follow.setOnClickListener(new View.OnClickListener(){
+
+
+
+
+        follow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if (Kenneth.isFollowed())
-                {
-                    Kenneth.setFollowed(false);
-                    follow.setText("Follow");
+                if (user.isFollowed()) {
+                    follow.setText(R.string.follows);
                     Toast.makeText(getApplicationContext(), "Unfollowed", Toast.LENGTH_SHORT).show();
+                    user.setFollowed(false);
                 }
-                else
-                {
-                    Kenneth.setFollowed(true);
-                    follow.setText("Followed");
+                else if(user.isFollowed() == false){
+                    follow.setText(R.string.followed);
                     Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
+                    user.setFollowed(true);
                 }
 
-                Log.v(TITLE, "Follow button is clicked. Follow status: " + Kenneth.isFollowed());
+                Log.v(TITLE, "Follow button is clicked. Follow status: " + user.isFollowed());
+                dbHandler.updateUser(user.getId(), user.isFollowed());
             }
         });
 
@@ -94,7 +104,4 @@ public class MainActivity extends AppCompatActivity {
         Log.v(TITLE, "On Destroy!");
     }
 }
-
-
-// prac 4
 
